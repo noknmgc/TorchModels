@@ -9,13 +9,11 @@ class UnetEncoder(nn.Module):
         self.maxpool = nn.MaxPool2d(2)
 
         self.dconv_down1 = double_conv(
-            hparams['in_ch'], 64, activation=hparams['activation'])
-        self.dconv_down2 = double_conv(
-            64, 128, activation=hparams['activation'])
-        self.dconv_down3 = double_conv(
-            128, 256, activation=hparams['activation'])
-        self.dconv_down4 = double_conv(
-            256, 512, activation=hparams['activation'])
+            hparams["in_ch"], 64, activation=hparams["activation"]
+        )
+        self.dconv_down2 = double_conv(64, 128, activation=hparams["activation"])
+        self.dconv_down3 = double_conv(128, 256, activation=hparams["activation"])
+        self.dconv_down4 = double_conv(256, 512, activation=hparams["activation"])
 
     def forward(self, x):
         # Encoder

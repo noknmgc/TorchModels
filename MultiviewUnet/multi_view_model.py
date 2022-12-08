@@ -15,7 +15,10 @@ def double_conv(in_channels, out_channels, activation=nn.ReLU(inplace=True)):
 
 class Encoder(nn.Module):
     def __init__(
-        self, in_ch=3, out_ch=512, activation=nn.ReLU(inplace=True),
+        self,
+        in_ch=3,
+        out_ch=512,
+        activation=nn.ReLU(inplace=True),
     ):
         super().__init__()
 
@@ -79,7 +82,10 @@ class MultiViewUNet(nn.Module):
         self.encoder = Encoder(in_ch=in_ch, out_ch=512, activation=activation)
         self.dconv_center = double_conv(512 * 6, 1024, activation=activation)
         self.decoder = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
 
     def forward(self, x):
@@ -122,7 +128,10 @@ class MultiViewUNet2(nn.Module):
         self.conv4_encoder = double_conv(512 * 6, 512, activation=activation)
 
         self.decoder = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
 
     def forward(self, x):
@@ -166,22 +175,40 @@ class MultiViewSeparateUNet(nn.Module):
         self.dconv_center = double_conv(512 * 6, 1024, activation=activation)
         # self.dconv_center2 = double_conv(2048, 1024, activation=activation)
         self.decoder1 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder2 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder3 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder4 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder5 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder6 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.encoders = [
             self.encoder1,
@@ -239,22 +266,40 @@ class MultiViewSeparateUNet_gray(nn.Module):
         self.encoder6 = Encoder(in_ch=in_ch, out_ch=512, activation=activation)
         self.dconv_center = double_conv(512 * 6, 1024, activation=activation)
         self.decoder1 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder2 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder3 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder4 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder5 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.decoder6 = Decoder(
-            in_ch=1024, out_ch=out_ch, activation=activation, last_act=last_act,
+            in_ch=1024,
+            out_ch=out_ch,
+            activation=activation,
+            last_act=last_act,
         )
         self.encoders = [
             self.encoder1,
